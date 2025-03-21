@@ -2,7 +2,7 @@ import "../scss/App.scss";
 
 function App() {
     return (
-        <div>
+        <>
             <header>
                 <h1>¡Cuidado con Grogu!</h1>
             </header>
@@ -43,7 +43,7 @@ function App() {
                     <button class="restart-button">Reiniciar Juego</button>
                 </section>
             </main>
-        </div>
+        </>
     );
 }
 
