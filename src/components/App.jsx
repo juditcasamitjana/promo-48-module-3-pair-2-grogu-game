@@ -1,46 +1,56 @@
 import "../scss/App.scss";
+import { useState } from "react";
+
+const numberOfCell = 7; //fuera porque no variará durante el juego
 
 function App() {
+    let [grogu, setGrogu] = useState(0); //valor inicial del dato
+    const [rollDice, setRollDice] = useState(0);
+    const [cookies, setCookies] = useState(3);
+    const [eggs, setEggs] = useState(3);
+    const [frogs, setFrogs] = useState(3);
+    let [gameStatus, setgameStatus] = useState("En curso");
+
     return (
         <>
             <header>
                 <h1>¡Cuidado con Grogu!</h1>
             </header>
-            <main class="page">
-                <section class="board">
-                    <div class="cell">
-                        <div class="grogu">👣</div>
+            <main className="page">
+                <section className="board">
+                    <div className="cell">
+                        <div className="grogu">👣</div>
                     </div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
+                    <div className="cell"></div>
+                    <div className="cell"></div>
+                    <div className="cell"></div>
+                    <div className="cell"></div>
+                    <div className="cell"></div>
+                    <div className="cell"></div>
                 </section>
 
                 <section>
-                    <button class="dice">Lanzar Dado</button>
-                    <div class="game-status">En curso</div>
+                    <button className="dice">Lanzar Dado</button>
+                    <div className="game-status">{gameStatus}</div>
                 </section>
 
-                <section class="goods-container">
-                    <div class="goods-item">🍪</div>
-                    <div class="goods-item">🍪</div>
-                    <div class="goods-item">🍪</div>
+                <section className="goods-container">
+                    <div className="goods-item">🍪</div>
+                    <div className="goods-item">🍪</div>
+                    <div className="goods-item">🍪</div>
                 </section>
-                <section class="goods-container">
-                    <div class="goods-item">🥚</div>
-                    <div class="goods-item">🥚</div>
-                    <div class="goods-item">🥚</div>
+                <section className="goods-container">
+                    <div className="goods-item">🥚</div>
+                    <div className="goods-item">🥚</div>
+                    <div className="goods-item">🥚</div>
                 </section>
-                <section class="goods-container">
-                    <div class="goods-item">🐸</div>
-                    <div class="goods-item">🐸</div>
-                    <div class="goods-item">🐸</div>
+                <section className="goods-container">
+                    <div className="goods-item">🐸</div>
+                    <div className="goods-item">🐸</div>
+                    <div className="goods-item">🐸</div>
                 </section>
                 <section>
-                    <button class="restart-button">Reiniciar Juego</button>
+                    <button className="restart-button">Reiniciar Juego</button>
                 </section>
             </main>
         </>
