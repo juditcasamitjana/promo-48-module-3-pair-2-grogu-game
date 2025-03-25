@@ -1,5 +1,5 @@
 function Board() {
-    retunr(
+    return (
         <section className="board">
             <div className="cell">
                 <div className="grogu">👣</div>
@@ -11,7 +11,7 @@ function Board() {
             <div className="cell"></div>
             <div className="cell"></div>
         </section>
-    )
+    );
 }
-export default Board ;
 
+export default Board;

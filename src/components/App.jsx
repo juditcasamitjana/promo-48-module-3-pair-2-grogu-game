@@ -7,10 +7,10 @@ const numberOfCell = 7; //fuera porque no variará durante el juego
 
 function App() {
     let [grogu, setGrogu] = useState(0); //valor inicial del dato
-    const [rollDice, setRollDice] = useState(0);
-    const [cookies, setCookies] = useState(3);
-    const [eggs, setEggs] = useState(3);
-    const [frogs, setFrogs] = useState(3);
+    const [diceRoll, setdiceRoll] = useState(0);
+    const [goodsCookies, setGoodsCookies] = useState(["🍪", "🍪", "🍪"]);
+    const [goodsEggs, setGoodsEggs] = useState(["🥚", "🥚", "🥚"]);
+    const [goodsFrog, setGoodsFrog] = useState(["🐸", "🐸", "🐸"]);
     let [gameStatus, setgameStatus] = useState("En curso");
 
     return (
@@ -18,7 +18,6 @@ function App() {
             <div>
                 <Header />
                 <main className="page">
-
                     <Board />
                     <section>
                         <button className="dice">Lanzar Dado</button>
@@ -41,11 +40,12 @@ function App() {
                         <div className="goods-item">🐸</div>
                     </section>
                     <section>
-                        <button className="restart-button">Reiniciar Juego</button>
+                        <button className="restart-button">
+                            Reiniciar Juego
+                        </button>
                     </section>
                 </main>
             </div>
-
         </>
     );
 }
