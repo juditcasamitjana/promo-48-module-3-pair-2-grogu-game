@@ -13,6 +13,19 @@ function App() {
     const [goodsFrog, setGoodsFrog] = useState(["🐸", "🐸", "🐸"]);
     let [gameStatus, setgameStatus] = useState("En curso");
 
+    const handleClickDice = () => {
+        const number = rollDice();
+        if (number === 4) {
+            setGrogu(grogu + 1);
+        } else if (number === 1) {
+            setGoodsCookies(goodsCookies.slice(1));
+        } else if (number === 2) {
+            setGoodsEggs(goodsEggs.slice(1));
+        } else {
+            setGoodsFrog(goodsFrog.slice(1));
+        }
+    };
+
     return (
         <>
             <div>
@@ -20,7 +33,9 @@ function App() {
                 <main className="page">
                     <Board />
                     <section>
-                        <button className="dice">Lanzar Dado</button>
+                        <button className="dice" onClick={handleClickDice}>
+                            Lanzar Dado
+                        </button>
                         <div className="game-status">{gameStatus}</div>
                     </section>
 
@@ -48,6 +63,13 @@ function App() {
             </div>
         </>
     );
+}
+
+function rollDice() {
+    const number = Math.floor(Math.random() * 4) + 1;
+    console.log("Tiro de dado", number);
+
+    return number;
 }
 
 export default App;

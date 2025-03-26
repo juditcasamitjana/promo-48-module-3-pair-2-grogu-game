@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1>¡Cuicado con Grogu!</h1>
+            <h1>¡Cuidado con Grogu!</h1>
         </header>
     );
 }
