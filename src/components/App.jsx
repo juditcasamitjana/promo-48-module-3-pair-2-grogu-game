@@ -2,6 +2,7 @@ import "../scss/App.scss";
 import { useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
+import Dice from "./Dice";
 
 const numberOfCell = 7; //fuera porque no variará durante el juego
 
@@ -14,7 +15,8 @@ function App() {
     let [gameStatus, setgameStatus] = useState("En curso");
 
     const handleClickDice = () => {
-        const number = rollDice();
+        
+        setdiceRoll(number);
         if (number === 4) {
             setGrogu(grogu + 1);
         } else if (number === 1) {
@@ -33,9 +35,7 @@ function App() {
                 <main className="page">
                     <Board />
                     <section>
-                        <button className="dice" onClick={handleClickDice}>
-                            Lanzar Dado
-                        </button>
+                        <Dice rollDice={rollDice} />
                         <div className="game-status">{gameStatus}</div>
                     </section>
 
