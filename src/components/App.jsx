@@ -15,8 +15,9 @@ function App() {
     let [gameStatus, setgameStatus] = useState("En curso");
 
     const handleClickDice = () => {
-        
+        const number = rollDice();
         setdiceRoll(number);
+
         if (number === 4) {
             setGrogu(grogu + 1);
         } else if (number === 1) {

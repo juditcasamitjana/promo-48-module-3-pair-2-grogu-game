@@ -1,15 +1,13 @@
-
 const Dice = ({ rollDice }) => {
     const handleClickDice = () => {
-      rollDice();
+        rollDice();
     };
-  
+
     return (
-      <button className="dice" onClick={handleClickDice}>
-        Lanzar Dado
-      </button>
+        <button className="dice" onClick={handleClickDice}>
+            Lanzar Dado
+        </button>
     );
-  };
-  
-  export default Dice;
-  
+};
+
+export default Dice;
