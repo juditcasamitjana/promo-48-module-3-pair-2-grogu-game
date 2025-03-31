@@ -4,15 +4,15 @@ import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
 
-const numberOfCell = 7; //fuera porque no variará durante el juego
-
 function App() {
     let [grogu, setGrogu] = useState(0); //valor inicial del dato
     const [diceRoll, setdiceRoll] = useState(0);
     const [goodsCookies, setGoodsCookies] = useState(["🍪", "🍪", "🍪"]);
     const [goodsEggs, setGoodsEggs] = useState(["🥚", "🥚", "🥚"]);
-    const [goodsFrog, setGoodsFrog] = useState(["🐸", "🐸", "🐸"]);
+    const [goodsFrogs, setGoodsFrogs] = useState(["🐸", "🐸", "🐸"]);
     let [gameStatus, setgameStatus] = useState("En curso");
+
+    console.log(goodsCookies, goodsEggs, goodsFrogs);
 
     const handleClickDice = () => {
         const number = rollDice();
@@ -25,7 +25,7 @@ function App() {
         } else if (number === 2) {
             setGoodsEggs(goodsEggs.slice(1));
         } else {
-            setGoodsFrog(goodsFrog.slice(1));
+            setGoodsFrogs(goodsFrogs.slice(1));
         }
     };
 
@@ -34,26 +34,26 @@ function App() {
             <div>
                 <Header />
                 <main className="page">
-                    <Board />
+                    <Board groguPosition={grogu} />
                     <section>
                         <Dice rollDice={rollDice} onClick={handleClickDice} />
                         <div className="game-status">{gameStatus}</div>
                     </section>
 
                     <section className="goods-container">
-                        <div className="goods-item">🍪</div>
-                        <div className="goods-item">🍪</div>
-                        <div className="goods-item">🍪</div>
+                        {goodsCookies.map((cookie) => {
+                            return <div className="goods-item">{cookie}</div>;
+                        })}
                     </section>
                     <section className="goods-container">
-                        <div className="goods-item">🥚</div>
-                        <div className="goods-item">🥚</div>
-                        <div className="goods-item">🥚</div>
+                        {goodsEggs.map((egg) => {
+                            return <div className="goods-item">{egg}</div>;
+                        })}
                     </section>
                     <section className="goods-container">
-                        <div className="goods-item">🐸</div>
-                        <div className="goods-item">🐸</div>
-                        <div className="goods-item">🐸</div>
+                        {goodsFrogs.map((frog) => {
+                            return <div className="goods-item">{frog}</div>;
+                        })}
                     </section>
                     <section>
                         <button className="restart-button">
