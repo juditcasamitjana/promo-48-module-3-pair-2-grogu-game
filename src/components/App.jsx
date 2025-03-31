@@ -36,7 +36,7 @@ function App() {
                 <main className="page">
                     <Board />
                     <section>
-                        <Dice rollDice={rollDice} />
+                        <Dice rollDice={rollDice} onClick={handleClickDice} />
                         <div className="game-status">{gameStatus}</div>
                     </section>
 
