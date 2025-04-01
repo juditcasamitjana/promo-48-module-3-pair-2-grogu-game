@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
+import Footer from "./Footer";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
     let [grogu, setGrogu] = useState(0); //valor inicial del dato
@@ -12,17 +14,17 @@ function App() {
     const [goodsFrogs, setGoodsFrogs] = useState(["🐸", "🐸", "🐸"]);
     let [gameStatus, setgameStatus] = useState("En curso");
 
-    // useEffect(() => {
-    //     if (grogu === 6) { //si grogu llega a la casilla 6
-    //         setgameStatus('Has perdido!'); // pierdes
-    //         return; // y para
-    //     }
+    useEffect(() => {
+        if (grogu === 6) { //si grogu llega a la casilla 6
+            setgameStatus('Has perdido!'); // pierdes
+            return; // y para
+        }
 
-    //     if (goodsCookies.length === 0 && goodsEggs.length === 0 && goodsFrogs.length === 0) { //si se acaba el cargamento
-    //         setgameStatus('Enhorabuena!! Has ganado!!'); // ganas
-    //         return;
-    //     }
-    // }, [grogu, goodsCookies,goodsEggs, goodsFrogs]);
+        if (goodsCookies.length === 0 && goodsEggs.length === 0 && goodsFrogs.length === 0) { //si se acaba el cargamento
+            setgameStatus('Enhorabuena!! Has ganado!!'); // ganas
+            return;
+        }
+    }, [grogu, goodsCookies, goodsEggs, goodsFrogs]);
 
     console.log(goodsCookies, goodsEggs, goodsFrogs);
 
@@ -72,6 +74,7 @@ function App() {
                         </button>
                     </section>
                 </main>
+                <Footer/>
             </div>
         </>
     );
