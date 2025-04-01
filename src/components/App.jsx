@@ -1,5 +1,5 @@
 import "../scss/App.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
@@ -12,10 +12,21 @@ function App() {
     const [goodsFrogs, setGoodsFrogs] = useState(["🐸", "🐸", "🐸"]);
     let [gameStatus, setgameStatus] = useState("En curso");
 
+    // useEffect(() => {
+    //     if (grogu === 6) { //si grogu llega a la casilla 6
+    //         setgameStatus('Has perdido!'); // pierdes
+    //         return; // y para
+    //     }
+
+    //     if (goodsCookies.length === 0 && goodsEggs.length === 0 && goodsFrogs.length === 0) { //si se acaba el cargamento
+    //         setgameStatus('Enhorabuena!! Has ganado!!'); // ganas
+    //         return;
+    //     }
+    // }, [grogu, goodsCookies,goodsEggs, goodsFrogs]);
+
     console.log(goodsCookies, goodsEggs, goodsFrogs);
 
-    const handleClickDice = () => {
-        const number = rollDice();
+    const handleOnRollDice = (number) => {
         setdiceRoll(number);
 
         if (number === 4) {
@@ -36,7 +47,7 @@ function App() {
                 <main className="page">
                     <Board groguPosition={grogu} />
                     <section>
-                        <Dice rollDice={rollDice} onClick={handleClickDice} />
+                        <Dice onRollDice={handleOnRollDice} />
                         <div className="game-status">{gameStatus}</div>
                     </section>
 
@@ -66,11 +77,12 @@ function App() {
     );
 }
 
-function rollDice() {
-    const number = Math.floor(Math.random() * 4) + 1;
-    console.log("Tiro de dado", number);
+// FUNCIÓN DE DADOS TIENE QUE IR EN COMPONENTE DICE
+// function rollDice() {
+//     const number = Math.floor(Math.random() * 4) + 1;
+//     console.log("Tiro de dado", number);
 
-    return number;
-}
+//     return number;
+// }
 
 export default App;

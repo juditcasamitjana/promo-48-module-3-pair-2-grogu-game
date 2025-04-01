@@ -9,7 +9,7 @@ function Board(props) {
                 return (
                     <div className="cell" key={index}>
                         {index === props.groguPosition ? <Grogu /> : null}
-                        <Grogu />
+                        {/* <Grogu /> SOLO CON QUITAR ESTO SALEN LOS PIES EN POSICION INICIAL*/}
                     </div>
                 );
             })}
