@@ -9,17 +9,9 @@ function Board(props) {
                 return (
                     <div className="cell" key={index}>
                         {index === props.groguPosition ? <Grogu /> : null}
-                        {/* <Grogu /> SOLO CON QUITAR ESTO SALEN LOS PIES EN POSICION INICIAL*/}
                     </div>
                 );
             })}
-
-            {/* <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div> */}
         </section>
     );
 }

@@ -4,7 +4,10 @@ import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
 import Footer from "./Footer";
-import { Route, Routes } from "react-router-dom";
+import Instructions from "./Instructions";
+import Options from "./Options";
+
+import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
     let [grogu, setGrogu] = useState(0); //valor inicial del dato
@@ -15,13 +18,19 @@ function App() {
     let [gameStatus, setgameStatus] = useState("En curso");
 
     useEffect(() => {
-        if (grogu === 6) { //si grogu llega a la casilla 6
-            setgameStatus('Has perdido!'); // pierdes
+        if (grogu === 6) {
+            //si grogu llega a la casilla 6
+            setgameStatus("Has perdido!"); // pierdes
             return; // y para
         }
 
-        if (goodsCookies.length === 0 && goodsEggs.length === 0 && goodsFrogs.length === 0) { //si se acaba el cargamento
-            setgameStatus('Enhorabuena!! Has ganado!!'); // ganas
+        if (
+            goodsCookies.length === 0 &&
+            goodsEggs.length === 0 &&
+            goodsFrogs.length === 0
+        ) {
+            //si se acaba el cargamento
+            setgameStatus("Enhorabuena!! Has ganado!!"); // ganas
             return;
         }
     }, [grogu, goodsCookies, goodsEggs, goodsFrogs]);
@@ -47,6 +56,11 @@ function App() {
             <div>
                 <Header />
                 <main className="page">
+                    <Routes>
+                        <Route path="/instructions" />
+                        <Route path="/options" />
+                    </Routes>
+
                     <Board groguPosition={grogu} />
                     <section>
                         <Dice onRollDice={handleOnRollDice} />
@@ -74,7 +88,7 @@ function App() {
                         </button>
                     </section>
                 </main>
-                <Footer/>
+                <Footer />
             </div>
         </>
     );
